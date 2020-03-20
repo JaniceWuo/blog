@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="nvidia," />
 
 
 
@@ -77,18 +77,20 @@
 
 
 
-<meta name="description" content="程序媛|软工硕士|NLP">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Janice的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="在租用某大厂服务器时，输入nvcc -V显示nvcc没有安装，但是服务器确实是装了cuda和cudnn的，于是输入vim ~&#x2F;.bashrc在行末尾加上： 12export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;cuda&#x2F;binexport LD_LIBRARY_PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda&#x2F;lib64::$LD_LIBRARY_PATH 然后执行source ~&#x2F;.bashrc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NVIDIA-SMI has failed because it couldn’t communicate with the NVIDIA driver解决方案">
+<meta property="og:url" content="http://yoursite.com/2020/03/20/nvidia/index.html">
 <meta property="og:site_name" content="Janice的博客">
-<meta property="og:description" content="程序媛|软工硕士|NLP">
+<meta property="og:description" content="在租用某大厂服务器时，输入nvcc -V显示nvcc没有安装，但是服务器确实是装了cuda和cudnn的，于是输入vim ~&#x2F;.bashrc在行末尾加上： 12export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;cuda&#x2F;binexport LD_LIBRARY_PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda&#x2F;lib64::$LD_LIBRARY_PATH 然后执行source ~&#x2F;.bashrc">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/blog/.com//nvidia.jpg">
+<meta property="article:published_time" content="2020-03-20T09:45:27.000Z">
+<meta property="article:modified_time" content="2020-03-20T10:09:51.764Z">
 <meta property="article:author" content="Wu Jing">
-<meta property="article:tag" content="程序媛">
-<meta property="article:tag" content="Python">
-<meta property="article:tag" content="NLP">
+<meta property="article:tag" content="nvidia">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/blog/.com//nvidia.jpg">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/03/20/nvidia/"/>
 
 
 
 
 
-  <title>Janice的博客</title>
+  <title>NVIDIA-SMI has failed because it couldn’t communicate with the NVIDIA driver解决方案 | Janice的博客</title>
   
 
 
@@ -143,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -217,9 +218,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -249,9 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2020/03/20/nvidia/" itemprop="url">NVIDIA-SMI has failed because it couldn’t communicate with the NVIDIA driver解决方案</a></h1>
+          <h1 class="post-title" itemprop="name headline">NVIDIA-SMI has failed because it couldn’t communicate with the NVIDIA driver解决方案</h1>
         
 
         <div class="post-meta">
@@ -301,9 +300,7 @@
       
 
       
-        
-          
-            <p>在租用某大厂服务器时，输入<code>nvcc -V</code>显示nvcc没有安装，但是服务器确实是装了cuda和cudnn的，于是输入<code>vim ~/.bashrc</code>在行末尾加上：</p>
+        <p>在租用某大厂服务器时，输入<code>nvcc -V</code>显示nvcc没有安装，但是服务器确实是装了cuda和cudnn的，于是输入<code>vim ~/.bashrc</code>在行末尾加上：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/cuda/bin</span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/usr/<span class="built_in">local</span>/cuda/lib64::<span class="variable">$LD_LIBRARY_PATH</span></span><br></pre></td></tr></table></figure>
 <p>然后执行<code>source ~/.bashrc</code>，之后<code>nvcc -V</code>成功输出信息。<br><br>以为终于可以成功用上tensorflow-gpu版了，写了个简单的test.py测试一下，结果输出结果还是在cpu上跑的。我就很无语了，cuda啥的都装上了，tensorflow-gpu也装成功，为啥还是使用的cpu。接着输入<code>nvidia-smi</code>查看显卡，出现“NVIDIA-SMI has failed because it couldn’t communicate with the NVIDIA driver”……<br>谷歌之后发现解决方案：<br><br>输入命令:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install dkms</span><br></pre></td></tr></table></figure>
@@ -313,8 +310,6 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dkms build -m nvidia -v 440.36</span><br><span class="line">sudo dkms install -m nvidia -v 440.36</span><br></pre></td></tr></table></figure>
 <p>输入<code>nvidia-smi</code>能显示显卡信息，此时也能成功使用gpu了。</p>
 
-          
-        
       
     </div>
     
@@ -329,263 +324,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2020/03/20/20320/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wu Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Janice的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2020/03/20/20320/" itemprop="url">gbk' codec can't encode character问题解决</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-20T17:15:03+08:00">
-                2020-03-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/blog/tags/nvidia/" rel="tag"># nvidia</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <h3 id="编码问题"><a href="#编码问题" class="headerlink" title="编码问题"></a>编码问题</h3><p>无论是做爬虫还是做对话系统，都免不了要进行数据处理以及从文件中读取数据。读取中文比较麻烦，会出各种编码错误。<br/><br>当出现<code>&#39;gbk&#39; codec can&#39;t encode character***</code>时，解决方案如下:  </p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/2020/03/20/20320/#more" rel="contents">
-              Read more &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2020/03/20/20320/" rel="next" title="gbk' codec can't encode character问题解决">
+                <i class="fa fa-chevron-left"></i> gbk' codec can't encode character问题解决
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2020/03/18/article/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wu Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Janice的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2020/03/18/article/" itemprop="url">hexo搭建博客踩坑记录</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-18T22:05:31+08:00">
-                2020-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h3 id="npm-node的版本"><a href="#npm-node的版本" class="headerlink" title="npm node的版本"></a>npm node的版本</h3><p>无论是<code>npm</code>还是<code>node.js</code>的版本都要高一些，不然会有很多包安装不上，出现n多问题。我的博客node.js为v12.16.1，npm版本为6.14.2。</p>
-<h3 id="root地址要修改"><a href="#root地址要修改" class="headerlink" title="root地址要修改"></a>root地址要修改</h3><p>由于觉得github项目名取为<code>***.github.io</code>太长，所以直接取名为blog，最终博客地址为<a href="https://janicewuo.github.io/blog/" target="_blank" rel="noopener">https://janicewuo.github.io/blog/</a> <br/></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/2020/03/18/article/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -595,10 +363,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -606,6 +375,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -818,6 +591,10 @@
 
 
   
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
