@@ -309,7 +309,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install dkms</span><br></pre></td></tr></table></figure>
 <p>查看nvidia版本号</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /usr/src/</span><br></pre></td></tr></table></figure>
-<p><img src="/blog/.com//nvidia.jpg" alt="/usr/src/路径下文件"><br>如图所示，发现服务器的nvidia版本号为440.36，于是输入命令：</p>
+<p>发现服务器的nvidia版本号为440.36，于是输入命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dkms build -m nvidia -v 440.36</span><br><span class="line">sudo dkms install -m nvidia -v 440.36</span><br></pre></td></tr></table></figure>
 <p>输入<code>nvidia-smi</code>能显示显卡信息，此时也能成功使用gpu了。</p>
 

@@ -84,13 +84,11 @@
 <meta property="og:site_name" content="Janice的博客">
 <meta property="og:description" content="在租用某大厂服务器时，输入nvcc -V显示nvcc没有安装，但是服务器确实是装了cuda和cudnn的，于是输入vim ~&#x2F;.bashrc在行末尾加上： 12export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;cuda&#x2F;binexport LD_LIBRARY_PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda&#x2F;lib64::$LD_LIBRARY_PATH 然后执行source ~&#x2F;.bashrc">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/blog/.com//nvidia.jpg">
 <meta property="article:published_time" content="2020-03-20T09:45:27.000Z">
-<meta property="article:modified_time" content="2020-03-20T10:09:51.764Z">
+<meta property="article:modified_time" content="2020-03-20T10:11:17.201Z">
 <meta property="article:author" content="Wu Jing">
 <meta property="article:tag" content="nvidia">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/blog/.com//nvidia.jpg">
 
 
 
@@ -306,7 +304,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install dkms</span><br></pre></td></tr></table></figure>
 <p>查看nvidia版本号</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /usr/src/</span><br></pre></td></tr></table></figure>
-<p><img src="/blog/.com//nvidia.jpg" alt="/usr/src/路径下文件"><br>如图所示，发现服务器的nvidia版本号为440.36，于是输入命令：</p>
+<p>发现服务器的nvidia版本号为440.36，于是输入命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dkms build -m nvidia -v 440.36</span><br><span class="line">sudo dkms install -m nvidia -v 440.36</span><br></pre></td></tr></table></figure>
 <p>输入<code>nvidia-smi</code>能显示显卡信息，此时也能成功使用gpu了。</p>
 
