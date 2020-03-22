@@ -232,6 +232,300 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2020/03/22/imgInsert/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wu Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Janice的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2020/03/22/imgInsert/" itemprop="url">hexo文章插入本地图片失败</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-22T22:30:37+08:00">
+                2020-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>之前插入本地图片一直失败，已经按照教程修改了<code>_config.yml</code>下的<code>post_asset_folder: true</code>，而且也安装了hexo-asset-image，把图片image.jpg放进文章同名的文件夹322内，markdown写入<code>![](322/image.jpg)</code>，执行hexo s图片显示失败。<br><br>好，开始找原因。<br><br>按F12查找源码，发现图片路径为<code>http://localhost:4000/2020/03/22/322/image.jpg</code>，链接复制粘贴到浏览器确实没有图片，但是在本地public/2020/03/22/322下已经生成了image.jpg。这就很无语了…<br><br>然后我仔细查看了路径，试着改为<code>http://localhost:4000/blog/2020/03/22/322/image.jpg</code>，发现成功显示图片！（我的博客本地打开后是<code>localhost:4000/blog/</code>）。于是在hexo根目录下的_config.yml末尾添加:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imgroot: &#x2F;blog&#x2F;</span><br></pre></td></tr></table></figure>
+<p>其中<code>blog</code>改为你自己的博客名，然后执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>即可成功在文章中插入图片。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2020/03/22/322/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wu Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Janice的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2020/03/22/322/" itemprop="url">关于文本数据的输入</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-22T21:21:49+08:00">
+                2020-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/NLP%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP数据处理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>由于神经网络往往都是一批（一个Batch)的数据输入，然后进行训练，batch_size可以为8,16,32等，而不会为1。例如输入文本如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">你      在      干    什么 </span><br><span class="line">你     是不是   傻     啊</span><br><span class="line">快给我  讲个    笑话  [PAD]</span><br><span class="line">早上    好     [PAD] [PAD]</span><br><span class="line">吃饭    了     [PAD] [PAD]</span><br><span class="line">无聊   [PAD]   [PAD] [PAD]</span><br></pre></td></tr></table></figure>
+<p>有6个输入句子，batch_size=6，max_length=4，对数据进行embedding并转换为张量，如下图所示：<br><img src="/blog/2020/03/22/322/original.jpg" alt></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2020/03/22/322/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2020/03/20/nvidia/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -302,18 +596,16 @@
 
       
         
-          
-            <p>在租用某大厂服务器时，输入<code>nvcc -V</code>显示nvcc没有安装，但是服务器确实是装了cuda和cudnn的，于是输入<code>vim ~/.bashrc</code>在行末尾加上：</p>
+          <p>在租用某大厂服务器时，输入<code>nvcc -V</code>显示nvcc没有安装，但是服务器确实是装了cuda和cudnn的，于是输入<code>vim ~/.bashrc</code>在行末尾加上：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/cuda/bin</span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/usr/<span class="built_in">local</span>/cuda/lib64::<span class="variable">$LD_LIBRARY_PATH</span></span><br></pre></td></tr></table></figure>
-<p>然后执行<code>source ~/.bashrc</code>，之后<code>nvcc -V</code>成功输出信息。<br><br>以为终于可以成功用上tensorflow-gpu版了，写了个简单的test.py测试一下，结果输出结果还是在cpu上跑的。我就很无语了，cuda啥的都装上了，tensorflow-gpu也装成功，为啥还是使用的cpu。接着输入<code>nvidia-smi</code>查看显卡，出现“NVIDIA-SMI has failed because it couldn’t communicate with the NVIDIA driver”……<br>谷歌之后发现解决方案：<br><br>输入命令:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install dkms</span><br></pre></td></tr></table></figure>
-<p>查看nvidia版本号</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /usr/src/</span><br></pre></td></tr></table></figure>
-<p>发现服务器的nvidia版本号为440.36，于是输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dkms build -m nvidia -v 440.36</span><br><span class="line">sudo dkms install -m nvidia -v 440.36</span><br></pre></td></tr></table></figure>
-<p>输入<code>nvidia-smi</code>能显示显卡信息，此时也能成功使用gpu了。</p>
-
-          
+<p>然后执行<code>source ~/.bashrc</code>，之后<code>nvcc -V</code>成功输出信息。<br><br>以为终于可以成功用上tensorflow-gpu版了，写了个简单的test.py测试一下，结果输出结果还是在cpu上跑的。我就很无语了，cuda啥的都装上了，tensorflow-gpu也装成功，为啥还是使用的cpu。接着输入<code>nvidia-smi</code>查看显卡，出现“NVIDIA-SMI has failed because it couldn’t communicate with the NVIDIA driver”……<br>谷歌之后发现解决方案：<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2020/03/20/nvidia/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -379,7 +671,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2020/03/20/20320/" itemprop="url">gbk' codec can't encode character问题解决</a></h1>
+                <a class="post-title-link" href="/blog/2020/03/20/20320/" itemprop="url">20320</a></h1>
         
 
         <div class="post-meta">
@@ -430,7 +722,12 @@
 
       
         
-          <h3 id="编码问题"><a href="#编码问题" class="headerlink" title="编码问题"></a>编码问题</h3><p>无论是做爬虫还是做对话系统，都免不了要进行数据处理以及从文件中读取数据。读取中文比较麻烦，会出各种编码错误。<br/><br>当出现<code>&#39;gbk&#39; codec can&#39;t encode character***</code>时，解决方案如下:  </p>
+          <hr>
+<p>title: gbk’ codec can’t encode character问题解决</p>
+<!-- date: 2020-03-20 17:15:03 -->
+<!-- tags:
+--- -->
+<h3 id="编码问题"><a href="#编码问题" class="headerlink" title="编码问题"></a>编码问题</h3><p>无论是做爬虫还是做对话系统，都免不了要进行数据处理以及从文件中读取数据。读取中文比较麻烦，会出各种编码错误。<br><br>当出现<code>&#39;gbk&#39; codec can&#39;t encode character***</code>时，解决方案如下:  </p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/blog/2020/03/20/20320/#more" rel="contents">
@@ -526,6 +823,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -555,7 +874,7 @@
       
         
           <h3 id="npm-node的版本"><a href="#npm-node的版本" class="headerlink" title="npm node的版本"></a>npm node的版本</h3><p>无论是<code>npm</code>还是<code>node.js</code>的版本都要高一些，不然会有很多包安装不上，出现n多问题。我的博客node.js为v12.16.1，npm版本为6.14.2。</p>
-<h3 id="root地址要修改"><a href="#root地址要修改" class="headerlink" title="root地址要修改"></a>root地址要修改</h3><p>由于觉得github项目名取为<code>***.github.io</code>太长，所以直接取名为blog，最终博客地址为<a href="https://janicewuo.github.io/blog/" target="_blank" rel="noopener">https://janicewuo.github.io/blog/</a> <br/></p>
+<h3 id="root地址要修改"><a href="#root地址要修改" class="headerlink" title="root地址要修改"></a>root地址要修改</h3><p>由于觉得github项目名取为<code>***.github.io</code>太长，所以直接取名为blog，最终博客地址为<a href="https://janicewuo.github.io/blog/" target="_blank" rel="noopener">https://janicewuo.github.io/blog/</a> <br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/blog/2020/03/18/article/#more" rel="contents">
@@ -642,12 +961,21 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/blog/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
             
 
             
@@ -655,7 +983,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
