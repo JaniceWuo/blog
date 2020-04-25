@@ -77,15 +77,13 @@
 
 
 
-<meta name="description" content="几年前装上python3之后就没用过python2了，但是刚刚在牛客网刷题时，编辑器只有python2没有python3，于是遇到坑了。我检查一遍代码觉得没有错，又复制到本地sublime上运行一遍也没问题，但是在牛客网上只通过16%的样例。想了一下可能是python版本问题，最后找到原因。在python2中： 13&#x2F;2&#x3D;1 在python3中： 13&#x2F;2&#x3D;1.5 这导致的后果是在执行代码whil">
-<meta property="og:type" content="article">
-<meta property="og:title" content="python2和python3在除法上的区别">
-<meta property="og:url" content="http://yoursite.com/2020/03/24/python2-3/index.html">
+<meta name="description" content="程序媛|软工硕士|NLP">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Janice的博客">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Janice的博客">
-<meta property="og:description" content="几年前装上python3之后就没用过python2了，但是刚刚在牛客网刷题时，编辑器只有python2没有python3，于是遇到坑了。我检查一遍代码觉得没有错，又复制到本地sublime上运行一遍也没问题，但是在牛客网上只通过16%的样例。想了一下可能是python版本问题，最后找到原因。在python2中： 13&#x2F;2&#x3D;1 在python3中： 13&#x2F;2&#x3D;1.5 这导致的后果是在执行代码whil">
+<meta property="og:description" content="程序媛|软工硕士|NLP">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-03-24T12:47:05.000Z">
-<meta property="article:modified_time" content="2020-03-24T12:55:11.154Z">
 <meta property="article:author" content="Wu Jing">
 <meta property="article:tag" content="程序媛">
 <meta property="article:tag" content="Python">
@@ -120,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/03/24/python2-3/"/>
+  <link rel="canonical" href="http://yoursite.com/page/2/"/>
 
 
 
 
 
-  <title>python2和python3在除法上的区别 | Janice的博客</title>
+  <title>Janice的博客</title>
   
 
 
@@ -145,7 +143,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -208,9 +207,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -223,7 +222,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2020/03/24/python2-3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2020/03/18/article/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wu Jing">
@@ -240,7 +239,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python2和python3在除法上的区别</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2020/03/18/article/" itemprop="url">hexo搭建博客踩坑记录</a></h1>
         
 
         <div class="post-meta">
@@ -252,8 +253,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-24T20:47:05+08:00">
-                2020-03-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-18T22:05:31+08:00">
+                2020-03-18
               </time>
             
 
@@ -275,8 +276,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
+                  <a href="/blog/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
                   </a>
                 </span>
 
@@ -312,12 +313,17 @@
       
 
       
-        <p>几年前装上python3之后就没用过python2了，但是刚刚在牛客网刷题时，编辑器只有python2没有python3，于是遇到坑了。我检查一遍代码觉得没有错，又复制到本地sublime上运行一遍也没问题，但是在牛客网上只通过16%的样例。<br>想了一下可能是python版本问题，最后找到原因。在python2中：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span>/<span class="number">2</span>=<span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>在python3中：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span>/<span class="number">2</span>=<span class="number">1.5</span></span><br></pre></td></tr></table></figure>
-<p>这导致的后果是在执行代码<code>while small&lt;sum/2</code>时，若small=1，sum=3，在python2中会认为不满足条件，导致程序返回结果出错，而在python3中代码是对的。</p>
-
+        
+          <h3 id="npm-node的版本"><a href="#npm-node的版本" class="headerlink" title="npm node的版本"></a>npm node的版本</h3><p>无论是<code>npm</code>还是<code>node.js</code>的版本都要高一些，不然会有很多包安装不上，出现n多问题。我的博客node.js为v12.16.1，npm版本为6.14.2。</p>
+<h3 id="root地址要修改"><a href="#root地址要修改" class="headerlink" title="root地址要修改"></a>root地址要修改</h3><p>由于觉得github项目名取为<code>***.github.io</code>太长，所以直接取名为blog，最终博客地址为<a href="https://janicewuo.github.io/blog/" target="_blank" rel="noopener">https://janicewuo.github.io/blog/</a> <br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2020/03/18/article/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
       
     </div>
     
@@ -334,32 +340,12 @@
       
 
       
-      
+
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/blog/2020/03/22/imgInsert/" rel="next" title="hexo文章插入本地图片失败">
-                <i class="fa fa-chevron-left"></i> hexo文章插入本地图片失败
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2020/03/28/algorithm-bit/" rel="prev" title="【编程题】bit 位数">
-                【编程题】bit 位数 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -369,11 +355,14 @@
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/blog/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
@@ -381,10 +370,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -606,10 +591,6 @@
 
 
   
-  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
