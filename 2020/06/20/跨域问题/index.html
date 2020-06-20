@@ -77,15 +77,15 @@
 
 
 
-<meta name="description" content="1.pandas.get_dummies是利用pandas实现one hot编码,如果想对全部列都进行one hot，则为data&#x3D;pd.get_dummies(original_data),如果是指定列，则data&#x3D;pd.get_dummies(列名)2.sklearn的LabelEncoder()以泰坦尼克号数据集举例，里面的性别原本为male,femal离散数值，要把它变为0,1不需要手动遍">
+<meta name="description" content="前端部署在http:&#x2F;&#x2F;localhost:8080，而SpringBoot创建的后端部署在http:&#x2F;&#x2F;localhost:9000。即使都是在本地，端口号不一样也是跨域。所以当前端页面点击登陆按钮要访问后端时会产生Invalid CORS request，且Request Method为OPTIONAL。解决方案：编写一个CorsConfig： 123456789101112131415161">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用pandas和sklearn处理数据">
-<meta property="og:url" content="http://yoursite.com/2020/04/16/pandas/index.html">
+<meta property="og:title" content="前端和后端的跨域问题——Invalid CORS request解决">
+<meta property="og:url" content="http://yoursite.com/2020/06/20/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Janice的博客">
-<meta property="og:description" content="1.pandas.get_dummies是利用pandas实现one hot编码,如果想对全部列都进行one hot，则为data&#x3D;pd.get_dummies(original_data),如果是指定列，则data&#x3D;pd.get_dummies(列名)2.sklearn的LabelEncoder()以泰坦尼克号数据集举例，里面的性别原本为male,femal离散数值，要把它变为0,1不需要手动遍">
+<meta property="og:description" content="前端部署在http:&#x2F;&#x2F;localhost:8080，而SpringBoot创建的后端部署在http:&#x2F;&#x2F;localhost:9000。即使都是在本地，端口号不一样也是跨域。所以当前端页面点击登陆按钮要访问后端时会产生Invalid CORS request，且Request Method为OPTIONAL。解决方案：编写一个CorsConfig： 123456789101112131415161">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-16T07:31:43.000Z">
-<meta property="article:modified_time" content="2020-04-20T12:24:20.854Z">
+<meta property="article:published_time" content="2020-06-20T06:08:47.000Z">
+<meta property="article:modified_time" content="2020-06-20T06:48:04.844Z">
 <meta property="article:author" content="Wu Jing">
 <meta property="article:tag" content="程序媛">
 <meta property="article:tag" content="Python">
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/04/16/pandas/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/06/20/跨域问题/"/>
 
 
 
 
 
-  <title>用pandas和sklearn处理数据 | Janice的博客</title>
+  <title>前端和后端的跨域问题——Invalid CORS request解决 | Janice的博客</title>
   
 
 
@@ -223,7 +223,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2020/04/16/pandas/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2020/06/20/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wu Jing">
@@ -240,7 +240,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">用pandas和sklearn处理数据</h1>
+          <h1 class="post-title" itemprop="name headline">前端和后端的跨域问题——Invalid CORS request解决</h1>
         
 
         <div class="post-meta">
@@ -252,8 +252,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-16T15:31:43+08:00">
-                2020-04-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-20T14:08:47+08:00">
+                2020-06-20
               </time>
             
 
@@ -262,6 +262,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/java%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index">
+                    <span itemprop="name">java项目</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -290,13 +312,9 @@
       
 
       
-        <p>1.<code>pandas.get_dummies</code><br><br>是利用pandas实现one hot编码,如果想对全部列都进行one hot，则为<code>data=pd.get_dummies(original_data)</code>,如果是指定列，则<code>data=pd.get_dummies(列名)</code><br><br>2.<code>sklearn的LabelEncoder()</code><br><br>以泰坦尼克号数据集举例，里面的性别原本为male,femal离散数值，要把它变为0,1不需要手动遍历进行转换，直接调用sklearn的函数即可，非常方便。<br></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> preprocessing</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">le = preprocessing.LabelEncoder()</span><br><span class="line">titanic_data = pd.read_csv(路径)</span><br><span class="line">titanic_data[<span class="string">'Sex'</span>]=le.fit_transform(titanic_data[<span class="string">'Sex'</span>])  <span class="comment">#在源数据集上进行改动</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>3.想要统计数据集某一列的属性值各有多少个，调用<code>.value_counts()</code>,比如想查看性别为male和female的各有多少个人：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">titanic_data[<span class="string">'Sex'</span>].value_counts()</span><br><span class="line"><span class="comment">#输出为： male 577  female 314 Name:Sex,dtype:int64</span></span><br></pre></td></tr></table></figure>
-<p>4.统计每个属性里面的NaN值的个数，用<code>.isna().sum()</code><br>5.填充属性里面的NaN值，可以用属性的平均值填充，计算出平均值后，用fillna。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">'Age'</span>].fillna(填充的值,inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+        <p>前端部署在<code>http://localhost:8080</code>，而SpringBoot创建的后端部署在<code>http://localhost:9000</code>。即使都是在本地，端口号不一样也是跨域。所以当前端页面点击登陆按钮要访问后端时会产生<code>Invalid CORS request</code>，且<code>Request Method</code>为<code>OPTIONAL</code>。<br><br>解决方案：<br>编写一个<code>CorsConfig</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.web.servlet.FilterRegistrationBean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.cors.CorsConfiguration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.cors.UrlBasedCorsConfigurationSource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.filter.CorsFilter;</span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CorsConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> FilterRegistrationBean <span class="title">corsFilter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        UrlBasedCorsConfigurationSource source = <span class="keyword">new</span> UrlBasedCorsConfigurationSource();</span><br><span class="line">        CorsConfiguration config = <span class="keyword">new</span> CorsConfiguration();</span><br><span class="line">        config.setAllowCredentials(<span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">// 设置你要允许的网站域名，如果全允许则设为 *</span></span><br><span class="line">        config.addAllowedOrigin(<span class="string">"http://localhost:8080"</span>);  <span class="comment">//这里意思是允许端口号为8080的来访问服务器</span></span><br><span class="line">        <span class="comment">// 如果要限制 HEADER 或 METHOD 请自行更改</span></span><br><span class="line">        config.addAllowedHeader(<span class="string">"*"</span>);</span><br><span class="line">        config.addAllowedMethod(<span class="string">"*"</span>);</span><br><span class="line">        source.registerCorsConfiguration(<span class="string">"/**"</span>, config);</span><br><span class="line">        FilterRegistrationBean bean = <span class="keyword">new</span> FilterRegistrationBean(<span class="keyword">new</span> CorsFilter(source));</span><br><span class="line">        <span class="comment">// 这个顺序很重要哦，为避免麻烦请设置在最前</span></span><br><span class="line">        bean.setOrder(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编写以上配置类后，能成功访问后端并且<code>Request Method</code>变为了<code>POST</code>。</p>
 
       
     </div>
@@ -321,8 +339,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2020/04/08/python-listcopy/" rel="next" title="python列表复制">
-                <i class="fa fa-chevron-left"></i> python列表复制
+              <a href="/blog/2020/04/25/%E6%AD%A3%E5%88%99/" rel="next" title="python3正则表达式总结">
+                <i class="fa fa-chevron-left"></i> python3正则表达式总结
               </a>
             
           </div>
@@ -330,10 +348,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2020/04/25/%E6%AD%A3%E5%88%99/" rel="prev" title="python3正则表达式总结">
-                python3正则表达式总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

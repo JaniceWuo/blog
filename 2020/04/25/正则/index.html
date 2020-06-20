@@ -77,15 +77,15 @@
 
 
 
-<meta name="description" content="1.re.compile()，用于编译正则表达式，生成一个正则表达式对象，供给其他函数使用。 1234import repattern &#x3D; re.compile(r&#39;([a-z]+) ([a-z]+)&#39;,re.I)m &#x3D; pattern.match(&#39;Hello World Wide Web&#39;)print(m.group(0)) #返回匹配成功的整个子串  &#39;Hello World&#39; 12345#">
+<meta name="description" content="1.re.compile()，用于编译正则表达式，生成一个正则表达式对象，供给其他函数使用。 1234import repattern &#x3D; re.compile(r&#39;([a-z]+) ([a-z]+)&#39;,re.I)  #re.I是忽略大小写m &#x3D; pattern.match(&#39;Hello World Wide Web&#39;)print(m.group(0)) #返回匹配成功的整个子串  &#39;Hello">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python3正则表达式总结">
 <meta property="og:url" content="http://yoursite.com/2020/04/25/%E6%AD%A3%E5%88%99/index.html">
 <meta property="og:site_name" content="Janice的博客">
-<meta property="og:description" content="1.re.compile()，用于编译正则表达式，生成一个正则表达式对象，供给其他函数使用。 1234import repattern &#x3D; re.compile(r&#39;([a-z]+) ([a-z]+)&#39;,re.I)m &#x3D; pattern.match(&#39;Hello World Wide Web&#39;)print(m.group(0)) #返回匹配成功的整个子串  &#39;Hello World&#39; 12345#">
+<meta property="og:description" content="1.re.compile()，用于编译正则表达式，生成一个正则表达式对象，供给其他函数使用。 1234import repattern &#x3D; re.compile(r&#39;([a-z]+) ([a-z]+)&#39;,re.I)  #re.I是忽略大小写m &#x3D; pattern.match(&#39;Hello World Wide Web&#39;)print(m.group(0)) #返回匹配成功的整个子串  &#39;Hello">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-25T07:31:37.000Z">
-<meta property="article:modified_time" content="2020-04-25T08:24:23.755Z">
+<meta property="article:modified_time" content="2020-04-25T08:25:22.260Z">
 <meta property="article:author" content="Wu Jing">
 <meta property="article:tag" content="程序媛">
 <meta property="article:tag" content="Python">
@@ -291,7 +291,7 @@
 
       
         <p>1.<code>re.compile()</code>，用于编译正则表达式，生成一个正则表达式对象，供给其他函数使用。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">pattern = re.compile(<span class="string">r'([a-z]+) ([a-z]+)'</span>,re.I)</span><br><span class="line">m = pattern.match(<span class="string">'Hello World Wide Web'</span>)</span><br><span class="line">print(m.group(<span class="number">0</span>)) <span class="comment">#返回匹配成功的整个子串  'Hello World'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">pattern = re.compile(<span class="string">r'([a-z]+) ([a-z]+)'</span>,re.I)  <span class="comment">#re.I是忽略大小写</span></span><br><span class="line">m = pattern.match(<span class="string">'Hello World Wide Web'</span>)</span><br><span class="line">print(m.group(<span class="number">0</span>)) <span class="comment">#返回匹配成功的整个子串  'Hello World'</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 字符串去重</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">p = re.compile(<span class="string">r"([a-zA-Z])(\1+)"</span>)  <span class="comment">#在compile的时候就分组</span></span><br><span class="line">s = <span class="string">"abbbcc"</span></span><br><span class="line">print(p.sub(<span class="string">r"\1"</span>,s))  <span class="comment">#abc</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#统计字符串中每个数出现次数</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">p = re.compile(<span class="string">r"([a-zA-z])(\1+)"</span>)</span><br><span class="line">s = <span class="string">"abbbcc"</span></span><br><span class="line">print(p.sub(<span class="keyword">lambda</span> m : m.group(<span class="number">1</span>)+str(<span class="number">1</span>+len(m.group(<span class="number">2</span>))),s))  <span class="comment">#a1b3c2</span></span><br></pre></td></tr></table></figure>
 <p>group(1)是返回匹配的第一个结果，group(2)是第二个。<br><br>2.<code>re.match()</code>只查找头部，如果头部没有匹配的则返回None。<br><br>3.<code>re.search()</code>会匹配全部字符串，直到找到一个匹配。<br></p>
@@ -328,6 +328,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2020/06/20/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/" rel="prev" title="前端和后端的跨域问题——Invalid CORS request解决">
+                前端和后端的跨域问题——Invalid CORS request解决 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -395,7 +399,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -406,7 +410,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/blog/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

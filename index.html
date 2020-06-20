@@ -222,6 +222,150 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2020/06/20/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wu Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Janice的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2020/06/20/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/" itemprop="url">前端和后端的跨域问题——Invalid CORS request解决</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-20T14:08:47+08:00">
+                2020-06-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/java%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index">
+                    <span itemprop="name">java项目</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>前端部署在<code>http://localhost:8080</code>，而SpringBoot创建的后端部署在<code>http://localhost:9000</code>。即使都是在本地，端口号不一样也是跨域。所以当前端页面点击登陆按钮要访问后端时会产生<code>Invalid CORS request</code>，且<code>Request Method</code>为<code>OPTIONAL</code>。<br><br>解决方案：<br>编写一个<code>CorsConfig</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.web.servlet.FilterRegistrationBean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.cors.CorsConfiguration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.cors.UrlBasedCorsConfigurationSource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.filter.CorsFilter;</span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CorsConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> FilterRegistrationBean <span class="title">corsFilter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        UrlBasedCorsConfigurationSource source = <span class="keyword">new</span> UrlBasedCorsConfigurationSource();</span><br><span class="line">        CorsConfiguration config = <span class="keyword">new</span> CorsConfiguration();</span><br><span class="line">        config.setAllowCredentials(<span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">// 设置你要允许的网站域名，如果全允许则设为 *</span></span><br><span class="line">        config.addAllowedOrigin(<span class="string">"http://localhost:8080"</span>);  <span class="comment">//这里意思是允许端口号为8080的来访问服务器</span></span><br><span class="line">        <span class="comment">// 如果要限制 HEADER 或 METHOD 请自行更改</span></span><br><span class="line">        config.addAllowedHeader(<span class="string">"*"</span>);</span><br><span class="line">        config.addAllowedMethod(<span class="string">"*"</span>);</span><br><span class="line">        source.registerCorsConfiguration(<span class="string">"/**"</span>, config);</span><br><span class="line">        FilterRegistrationBean bean = <span class="keyword">new</span> FilterRegistrationBean(<span class="keyword">new</span> CorsFilter(source));</span><br><span class="line">        <span class="comment">// 这个顺序很重要哦，为避免麻烦请设置在最前</span></span><br><span class="line">        bean.setOrder(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编写以上配置类后，能成功访问后端并且<code>Request Method</code>变为了<code>POST</code>。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2020/04/25/%E6%AD%A3%E5%88%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -294,7 +438,7 @@
         
           
             <p>1.<code>re.compile()</code>，用于编译正则表达式，生成一个正则表达式对象，供给其他函数使用。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">pattern = re.compile(<span class="string">r'([a-z]+) ([a-z]+)'</span>,re.I)</span><br><span class="line">m = pattern.match(<span class="string">'Hello World Wide Web'</span>)</span><br><span class="line">print(m.group(<span class="number">0</span>)) <span class="comment">#返回匹配成功的整个子串  'Hello World'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">pattern = re.compile(<span class="string">r'([a-z]+) ([a-z]+)'</span>,re.I)  <span class="comment">#re.I是忽略大小写</span></span><br><span class="line">m = pattern.match(<span class="string">'Hello World Wide Web'</span>)</span><br><span class="line">print(m.group(<span class="number">0</span>)) <span class="comment">#返回匹配成功的整个子串  'Hello World'</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 字符串去重</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">p = re.compile(<span class="string">r"([a-zA-Z])(\1+)"</span>)  <span class="comment">#在compile的时候就分组</span></span><br><span class="line">s = <span class="string">"abbbcc"</span></span><br><span class="line">print(p.sub(<span class="string">r"\1"</span>,s))  <span class="comment">#abc</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#统计字符串中每个数出现次数</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">p = re.compile(<span class="string">r"([a-zA-z])(\1+)"</span>)</span><br><span class="line">s = <span class="string">"abbbcc"</span></span><br><span class="line">print(p.sub(<span class="keyword">lambda</span> m : m.group(<span class="number">1</span>)+str(<span class="number">1</span>+len(m.group(<span class="number">2</span>))),s))  <span class="comment">#a1b3c2</span></span><br></pre></td></tr></table></figure>
 <p>group(1)是返回匹配的第一个结果，group(2)是第二个。<br><br>2.<code>re.match()</code>只查找头部，如果头部没有匹配的则返回None。<br><br>3.<code>re.search()</code>会匹配全部字符串，直到找到一个匹配。<br></p>
@@ -1458,130 +1602,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2020/03/20/20320/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wu Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Janice的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2020/03/20/20320/" itemprop="url">gbk codec can't encode character问题解决</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-20T17:15:03+08:00">
-                2020-03-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="编码问题"><a href="#编码问题" class="headerlink" title="编码问题"></a>编码问题</h3><p>无论是做爬虫还是做对话系统，都免不了要进行数据处理以及从文件中读取数据。读取中文比较麻烦，会出各种编码错误。<br><br>当出现<code>&#39;gbk&#39; codec can&#39;t encode character***</code>时，解决方案如下:  </p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/2020/03/20/20320/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1632,7 +1652,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1643,7 +1663,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/blog/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

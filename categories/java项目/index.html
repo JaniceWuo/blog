@@ -77,15 +77,13 @@
 
 
 
-<meta name="description" content="1.pandas.get_dummies是利用pandas实现one hot编码,如果想对全部列都进行one hot，则为data&#x3D;pd.get_dummies(original_data),如果是指定列，则data&#x3D;pd.get_dummies(列名)2.sklearn的LabelEncoder()以泰坦尼克号数据集举例，里面的性别原本为male,femal离散数值，要把它变为0,1不需要手动遍">
-<meta property="og:type" content="article">
-<meta property="og:title" content="用pandas和sklearn处理数据">
-<meta property="og:url" content="http://yoursite.com/2020/04/16/pandas/index.html">
+<meta name="description" content="程序媛|软工硕士|NLP">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Janice的博客">
+<meta property="og:url" content="http://yoursite.com/categories/java%E9%A1%B9%E7%9B%AE/index.html">
 <meta property="og:site_name" content="Janice的博客">
-<meta property="og:description" content="1.pandas.get_dummies是利用pandas实现one hot编码,如果想对全部列都进行one hot，则为data&#x3D;pd.get_dummies(original_data),如果是指定列，则data&#x3D;pd.get_dummies(列名)2.sklearn的LabelEncoder()以泰坦尼克号数据集举例，里面的性别原本为male,femal离散数值，要把它变为0,1不需要手动遍">
+<meta property="og:description" content="程序媛|软工硕士|NLP">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-16T07:31:43.000Z">
-<meta property="article:modified_time" content="2020-04-20T12:24:20.854Z">
 <meta property="article:author" content="Wu Jing">
 <meta property="article:tag" content="程序媛">
 <meta property="article:tag" content="Python">
@@ -120,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/04/16/pandas/"/>
+  <link rel="canonical" href="http://yoursite.com/categories/java项目/"/>
 
 
 
 
 
-  <title>用pandas和sklearn处理数据 | Janice的博客</title>
+  <title>Category: java项目 | Janice的博客</title>
   
 
 
@@ -145,7 +143,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -209,151 +207,55 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block category">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>java项目<small>Category</small>
+        </h1>
+      </div>
 
-  
-  
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2020/04/16/pandas/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wu Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Janice的博客">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">用pandas和sklearn处理数据</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+            <a class="post-title-link" href="/blog/2020/06/20/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/" itemprop="url">
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span itemprop="name">前端和后端的跨域问题——Invalid CORS request解决</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-16T15:31:43+08:00">
-                2020-04-16
-              </time>
-            
+            </a>
+        
+      </h2>
 
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-06-20T14:08:47+08:00"
+              content="2020-06-20" >
+          06-20
+        </time>
+      </div>
 
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>1.<code>pandas.get_dummies</code><br><br>是利用pandas实现one hot编码,如果想对全部列都进行one hot，则为<code>data=pd.get_dummies(original_data)</code>,如果是指定列，则<code>data=pd.get_dummies(列名)</code><br><br>2.<code>sklearn的LabelEncoder()</code><br><br>以泰坦尼克号数据集举例，里面的性别原本为male,femal离散数值，要把它变为0,1不需要手动遍历进行转换，直接调用sklearn的函数即可，非常方便。<br></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> preprocessing</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">le = preprocessing.LabelEncoder()</span><br><span class="line">titanic_data = pd.read_csv(路径)</span><br><span class="line">titanic_data[<span class="string">'Sex'</span>]=le.fit_transform(titanic_data[<span class="string">'Sex'</span>])  <span class="comment">#在源数据集上进行改动</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>3.想要统计数据集某一列的属性值各有多少个，调用<code>.value_counts()</code>,比如想查看性别为male和female的各有多少个人：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">titanic_data[<span class="string">'Sex'</span>].value_counts()</span><br><span class="line"><span class="comment">#输出为： male 577  female 314 Name:Sex,dtype:int64</span></span><br></pre></td></tr></table></figure>
-<p>4.统计每个属性里面的NaN值的个数，用<code>.isna().sum()</code><br>5.填充属性里面的NaN值，可以用属性的平均值填充，计算出平均值后，用fillna。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">'Age'</span>].fillna(填充的值,inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/blog/2020/04/08/python-listcopy/" rel="next" title="python列表复制">
-                <i class="fa fa-chevron-left"></i> python列表复制
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2020/04/25/%E6%AD%A3%E5%88%99/" rel="prev" title="python3正则表达式总结">
-                python3正则表达式总结 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
       
     </div>
+
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -361,10 +263,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -586,10 +484,6 @@
 
 
   
-  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
